@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.silvaguilherme.estudoshorasepc.entities.Area;
 import com.silvaguilherme.estudoshorasepc.entities.Projeto;
 import com.silvaguilherme.estudoshorasepc.repositories.ProjetoRepository;
 
 @RestController
 @RequestMapping(value = "/projetos")
 public class ProjetoResource {
+	
+	private List<Projeto> list;
 
 	@Autowired
 	private ProjetoRepository projetoRepository;
@@ -29,5 +32,6 @@ public class ProjetoResource {
 	public ResponseEntity<Projeto> findById(@PathVariable Long id) {
 		Projeto obj = projetoRepository.findById(id).get();
 		return ResponseEntity.ok().body(obj);
-	} 
+	}
+	
 }
