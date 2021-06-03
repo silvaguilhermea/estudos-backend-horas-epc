@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.silvaguilherme.estudoshorasepc.entities.Setor;
 
 @Repository
-public interface SetorRepository extends JpaRepository<Setor, Long> {
+public interface SetorRepository extends JpaRepository<Setor, Integer> {
 
 }

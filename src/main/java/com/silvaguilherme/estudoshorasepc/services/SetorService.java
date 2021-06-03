@@ -1,0 +1,53 @@
+package com.silvaguilherme.estudoshorasepc.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
+
+import com.silvaguilherme.estudoshorasepc.entities.Setor;
+import com.silvaguilherme.estudoshorasepc.repositories.SetorRepository;
+import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;
+import com.silvaguilherme.estudoshorasepc.services.exceptions.ObjectNotFoundException;
+
+
+@Service
+public class SetorService {
+	
+	@Autowired
+	public SetorRepository repo;
+	
+	public Setor insert(Setor obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
+	
+	public Setor update(Setor obj) {
+		buscar(obj.getId());
+		return repo.save(obj);
+	}
+	
+	public void delete(Integer id) {
+		buscar(id);
+		try {
+			repo.deleteById(id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Não é possível excluir um Setor responsável por atividades");
+		}
+	}
+	
+	public Setor buscar(Integer id) {
+		Optional<Setor> obj = repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+		 "Objeto não encontrado! Id: " + id + ", Tipo: " + Setor.class.getName()));
+	}
+	
+	public List<Setor> buscarTudo() {
+		List<Setor> Setors = repo.findAll();
+		return Setors;
+	}
+
+}
