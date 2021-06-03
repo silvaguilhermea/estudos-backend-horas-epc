@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.silvaguilherme.estudoshorasepc.entities.Area;
 
 @Repository
-public interface AreaRepository extends JpaRepository<Area, Long> {
+public interface AreaRepository extends JpaRepository<Area, Integer> {
 
 }
