@@ -7,6 +7,6 @@ import com.silvaguilherme.estudoshorasepc.entities.Area;
 import com.silvaguilherme.estudoshorasepc.entities.Projeto;
 
 @Repository
-public interface ProjetoRepository extends JpaRepository<Projeto, Long> {
+public interface ProjetoRepository extends JpaRepository<Projeto, Integer> {
 
 }

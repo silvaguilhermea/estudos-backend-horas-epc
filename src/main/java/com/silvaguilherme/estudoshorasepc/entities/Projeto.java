@@ -22,7 +22,7 @@ public class Projeto implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String name;
 	
 	@ManyToOne
@@ -36,18 +36,18 @@ public class Projeto implements Serializable {
 	public Projeto() {
 	}
 
-	public Projeto(Long id, String name, Area area) {
+	public Projeto(Integer id, String name, Area area) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.area = area;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
