@@ -64,10 +64,10 @@ public class EstudoshorasepcApplication implements CommandLineRunner {
 		Usuario u3 = new Usuario(null, "Oswaldo", "oswaldo.neto", "oswaldo.neto@butantan", "456");
 		Usuario u4 = new Usuario(null, "Wiiliam", "william.goncalves", "william.goncalves@butantan", "654");
 		
-		Projeto p1 = new Projeto(null, "Reforma do Soros", a1);
-		Projeto p2 = new Projeto(null, "Reforma da Raiva", a2);
-		Projeto p3 = new Projeto(null, "CIP do mixer do Soros", a1);
-		Projeto p4 = new Projeto(null, "CIP do tanque da Raiva", a2);
+		Projeto p1 = new Projeto(null, "Reforma do Soros", a1, "2020-06-05", "2020-06-09");
+		Projeto p2 = new Projeto(null, "Reforma da Raiva", a2, "2020-06-05", "2020-06-09");
+		Projeto p3 = new Projeto(null, "CIP do mixer do Soros", a1, "2020-06-05", "2020-06-09");
+		Projeto p4 = new Projeto(null, "CIP do tanque da Raiva", a2, "2020-06-05", "2020-06-09");
 		
 		Atividade atv1 = new Atividade (null, "Lista", p1, s1, e4, u4);
 		Atividade atv2 = new Atividade (null, "Tabela", p2, s2, e3, u3);

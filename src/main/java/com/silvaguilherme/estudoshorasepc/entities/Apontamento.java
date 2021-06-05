@@ -24,11 +24,13 @@ public class Apontamento implements Serializable {
 	private String setor;
 	private String atividade;
 	private String responsavel;
+	private String dataInicial;
+	private String dataFinal;
 	
 	public Apontamento() {
 	}
 
-	public Apontamento(Integer id, String area, String projeto, String setor, String atividade, String responsavel) {
+	public Apontamento(Integer id, String area, String projeto, String setor, String atividade, String responsavel, String dataInicial, String dataFinal) {
 		super();
 		this.id = id;
 		this.area = area;
@@ -36,6 +38,8 @@ public class Apontamento implements Serializable {
 		this.setor = setor;
 		this.atividade = atividade;
 		this.responsavel = responsavel;
+		this.dataInicial = dataInicial;
+		this.dataFinal = dataFinal;
 	}
 
 	public Integer getId() {
@@ -84,6 +88,22 @@ public class Apontamento implements Serializable {
 
 	public void setResponsavel(String responsavel) {
 		this.responsavel = responsavel;
+	}
+
+	public String getDataInicial() {
+		return dataInicial;
+	}
+
+	public void setDataInicial(String dataInicial) {
+		this.dataInicial = dataInicial;
+	}
+
+	public String getDataFinal() {
+		return dataFinal;
+	}
+
+	public void setDataFinal(String dataFinal) {
+		this.dataFinal = dataFinal;
 	}
 
 	@Override

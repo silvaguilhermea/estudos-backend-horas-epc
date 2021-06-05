@@ -24,6 +24,8 @@ public class Projeto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private String dataInicial;
+	private String dataFinal;
 	
 	@ManyToOne
 	@JoinColumn(name = "area_id")
@@ -36,11 +38,13 @@ public class Projeto implements Serializable {
 	public Projeto() {
 	}
 
-	public Projeto(Integer id, String name, Area area) {
+	public Projeto(Integer id, String name, Area area, String dataInicial, String dataFinal) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.area = area;
+		this.dataInicial = dataInicial;
+		this.dataFinal = dataFinal;
 	}
 
 	public Integer getId() {
@@ -69,6 +73,22 @@ public class Projeto implements Serializable {
 	
 	public List<Atividade> getAtividades() {
 		return atividades;
+	}
+
+	public String getDataInicial() {
+		return dataInicial;
+	}
+
+	public void setDataInicial(String dataInicial) {
+		this.dataInicial = dataInicial;
+	}
+
+	public String getDataFinal() {
+		return dataFinal;
+	}
+
+	public void setDataFinal(String dataFinal) {
+		this.dataFinal = dataFinal;
 	}
 
 	@Override
