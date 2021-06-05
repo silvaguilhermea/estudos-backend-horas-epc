@@ -17,7 +17,7 @@ public class Atividade implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String name;
 	
 	@ManyToOne
@@ -39,7 +39,7 @@ public class Atividade implements Serializable {
 	public Atividade() {
 	}
 
-	public Atividade(Long id, String name, Projeto projeto, Setor setor, Estado estado, Usuario usuario) {
+	public Atividade(Integer id, String name, Projeto projeto, Setor setor, Estado estado, Usuario usuario) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -49,11 +49,11 @@ public class Atividade implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -12,33 +12,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.silvaguilherme.estudoshorasepc.entities.Atividade;
-import com.silvaguilherme.estudoshorasepc.services.AtividadeService;
+import com.silvaguilherme.estudoshorasepc.entities.Apontamento;
+import com.silvaguilherme.estudoshorasepc.services.ApontamentoService;
 
 @RestController
-@RequestMapping(value = "/atividades")
-public class AtividadeResource {
+@RequestMapping(value = "/apontamentos")
+public class ApontamentoResource {
 /*
 	@Autowired
-	private AtividadeRepository atividadeRepository;
+	private ApontamentoRepository ApontamentoRepository;
 	
 	@GetMapping
-	public ResponseEntity<List<Atividade>> findAll() {
-		List<Atividade> list = atividadeRepository.findAll();
+	public ResponseEntity<List<Apontamento>> findAll() {
+		List<Apontamento> list = ApontamentoRepository.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Atividade> findById(@PathVariable Long id) {
-		Atividade obj = atividadeRepository.findById(id).get();
-		return ResponseEntity.ok().body(obj);
-	} */
+	public ResponseEntity<Apontamento> findById(@PathVariable Long id) {
+		Apontamento set= ApontamentoRepository.findById(id).get();
+		return ResponseEntity.ok().body(set);
+	} 
+	*/
 	@Autowired /* instância objetos automaticamente */
-	public AtividadeService service;
+	public ApontamentoService service;
 
 	/* Método Inserir */
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody Atividade obj){
+	public ResponseEntity<Void> insert(@RequestBody Apontamento obj){
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().
 				path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -47,7 +48,7 @@ public class AtividadeResource {
 	
 	/* Método Atualizar */
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody Atividade obj,@PathVariable Integer id) {
+	public ResponseEntity<Void> update(@RequestBody Apontamento obj,@PathVariable Integer id) {
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
@@ -63,14 +64,14 @@ public class AtividadeResource {
 	/* método GET para tratar as requisições  */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Atividade obj = service.buscar(id);
+		Apontamento obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
 	/* FAZER COM O DTO */
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Atividade>> buscarTudo() {
-		List<Atividade> obj = service.buscarTudo();
+	public ResponseEntity<List<Apontamento>> buscarTudo() {
+		List<Apontamento> obj = service.buscarTudo();
 		return ResponseEntity.ok().body(obj);
 	}
 }
