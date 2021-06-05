@@ -59,10 +59,10 @@ public class EstudoshorasepcApplication implements CommandLineRunner {
 		Estado e3 = new Estado(null, "Revisão");
 		Estado e4 = new Estado(null, "Finalizado");
 		
-		Usuario u1 = new Usuario(null, "Guilherme");
-		Usuario u2 = new Usuario(null, "Isabela");
-		Usuario u3 = new Usuario(null, "Oswaldo");
-		Usuario u4 = new Usuario(null, "Wiiliam");
+		Usuario u1 = new Usuario(null, "Guilherme", "guilherme.dasilva", "guilherme.dasilva@butantan", "123");
+		Usuario u2 = new Usuario(null, "Isabela", "isabela.quental", "isabela.quental@butantan", "321");
+		Usuario u3 = new Usuario(null, "Oswaldo", "oswaldo.neto", "oswaldo.neto@butantan", "456");
+		Usuario u4 = new Usuario(null, "Wiiliam", "william.goncalves", "william.goncalves@butantan", "654");
 		
 		Projeto p1 = new Projeto(null, "Reforma do Soros", a1);
 		Projeto p2 = new Projeto(null, "Reforma da Raiva", a2);

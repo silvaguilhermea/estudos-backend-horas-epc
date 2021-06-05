@@ -20,6 +20,9 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private String user;
+	private String email;
+	private String password;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
@@ -28,10 +31,13 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(Integer id, String name) {
+	public Usuario(Integer id, String name, String user, String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.user = user;
+		this.email = email;
+		this.password = password;
 	}
 
 	public Integer getId() {
@@ -52,6 +58,30 @@ public class Usuario implements Serializable {
 	
 	public List<Atividade> getAtividades() {
 		return atividades;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
