@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,9 +20,17 @@ public class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String name;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String user;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String email;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String password;
 	
 	@JsonIgnore

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,12 +25,16 @@ public class Projeto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String name;
+	
 	private String dataInicial;
 	private String dataFinal;
 	
 	@ManyToOne
 	@JoinColumn(name = "area_id")
+	@NotNull
 	private Area area;
 	
 	@JsonIgnore

@@ -1,3 +1,4 @@
+
 package com.silvaguilherme.estudoshorasepc.entities;
 
 import java.io.Serializable;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -18,22 +21,28 @@ public class Atividade implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String name;
 	
 	@ManyToOne
 	@JoinColumn(name = "setor_id")
+	@NotNull
 	private Setor setor;
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
+	@NotNull
 	private Usuario usuario;
 	
 	@ManyToOne
 	@JoinColumn(name = "estado_id")
+	@NotNull
 	private Estado estado;
 	
 	@ManyToOne
 	@JoinColumn(name = "projeto_id")
+	@NotNull
 	private Projeto projeto;
 	
 	public Atividade() {

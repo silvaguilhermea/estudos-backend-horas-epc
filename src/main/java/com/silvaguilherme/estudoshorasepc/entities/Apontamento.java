@@ -1,16 +1,12 @@
 package com.silvaguilherme.estudoshorasepc.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Apontamento implements Serializable {
@@ -19,18 +15,34 @@ public class Apontamento implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String area;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String projeto;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String setor;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String atividade;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String responsavel;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String dataInicial;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String dataFinal;
+	
+	private String comentario;	
 	
 	public Apontamento() {
 	}
 
-	public Apontamento(Integer id, String area, String projeto, String setor, String atividade, String responsavel, String dataInicial, String dataFinal) {
+	public Apontamento(Integer id, String area, String projeto, String setor, String atividade, String responsavel, String dataInicial, String dataFinal, String comentario) {
 		super();
 		this.id = id;
 		this.area = area;
@@ -40,6 +52,7 @@ public class Apontamento implements Serializable {
 		this.responsavel = responsavel;
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
+		this.comentario = comentario;
 	}
 
 	public Integer getId() {
@@ -104,6 +117,14 @@ public class Apontamento implements Serializable {
 
 	public void setDataFinal(String dataFinal) {
 		this.dataFinal = dataFinal;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 
 	@Override
