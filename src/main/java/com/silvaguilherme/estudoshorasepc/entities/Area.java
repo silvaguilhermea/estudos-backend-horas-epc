@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,10 @@ public class Area implements Serializable {
 	private Integer id;
 	
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	@Column(unique = true)
 	private String name;
+	
+	private String descricao;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "area")
@@ -30,11 +34,18 @@ public class Area implements Serializable {
 	
 	public Area() {
 	}
-
+	
 	public Area(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+
+	public Area(Integer id, String name,String descricao) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.descricao = descricao;
 	}
 
 	public Integer getId() {
@@ -55,6 +66,14 @@ public class Area implements Serializable {
 	
 	public List<Projeto> getProjetos() {
 		return projetos;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	@Override

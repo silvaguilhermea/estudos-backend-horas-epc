@@ -18,21 +18,7 @@ import com.silvaguilherme.estudoshorasepc.services.AtividadeService;
 @RestController
 @RequestMapping(value = "/atividades")
 public class AtividadeResource {
-/*
-	@Autowired
-	private AtividadeRepository atividadeRepository;
-	
-	@GetMapping
-	public ResponseEntity<List<Atividade>> findAll() {
-		List<Atividade> list = atividadeRepository.findAll();
-		return ResponseEntity.ok().body(list);
-	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Atividade> findById(@PathVariable Long id) {
-		Atividade obj = atividadeRepository.findById(id).get();
-		return ResponseEntity.ok().body(obj);
-	} */
 	@Autowired /* instância objetos automaticamente */
 	public AtividadeService service;
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,12 +23,15 @@ public class Usuario implements Serializable {
 	private Integer id;
 	
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	@Column(unique = true)
 	private String name;
 	
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	@Column(unique = true)
 	private String user;
 	
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	@Column(unique = true)
 	private String email;
 	
 	@NotEmpty(message = "{campo.nome.obrigatorio}")

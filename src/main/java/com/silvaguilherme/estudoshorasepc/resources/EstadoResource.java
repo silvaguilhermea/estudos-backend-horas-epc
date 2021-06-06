@@ -18,22 +18,7 @@ import com.silvaguilherme.estudoshorasepc.services.EstadoService;
 @RestController
 @RequestMapping(value = "/estados")
 public class EstadoResource {
-/*
-	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
-	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll() {
-		List<Usuario> list = usuarioRepository.findAll();
-		return ResponseEntity.ok().body(list);
-	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Usuario> findById(@PathVariable Long id) {
-		Usuario u = usuarioRepository.findById(id).get();
-		return ResponseEntity.ok().body(u);
-	} 
-	*/
 	@Autowired /* instância objetos automaticamente */
 	public EstadoService service;
 

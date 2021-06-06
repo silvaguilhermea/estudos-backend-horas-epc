@@ -18,22 +18,7 @@ import com.silvaguilherme.estudoshorasepc.services.ApontamentoService;
 @RestController
 @RequestMapping(value = "/apontamentos")
 public class ApontamentoResource {
-/*
-	@Autowired
-	private ApontamentoRepository ApontamentoRepository;
-	
-	@GetMapping
-	public ResponseEntity<List<Apontamento>> findAll() {
-		List<Apontamento> list = ApontamentoRepository.findAll();
-		return ResponseEntity.ok().body(list);
-	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Apontamento> findById(@PathVariable Long id) {
-		Apontamento set= ApontamentoRepository.findById(id).get();
-		return ResponseEntity.ok().body(set);
-	} 
-	*/
 	@Autowired /* instância objetos automaticamente */
 	public ApontamentoService service;
 

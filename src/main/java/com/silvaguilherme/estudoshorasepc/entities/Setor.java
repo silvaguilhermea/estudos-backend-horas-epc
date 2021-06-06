@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,12 @@ public class Setor implements Serializable {
 	private Integer id;
 	
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	@Column(unique = true)
 	private String name;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	@Column(unique = true)
+	private String sigla;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "setor")
@@ -31,10 +37,11 @@ public class Setor implements Serializable {
 	public Setor() {
 	}
 
-	public Setor(Integer id, String name) {
+	public Setor(Integer id, String name, String sigla) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.sigla = sigla;
 	}
 
 	public Integer getId() {
@@ -53,6 +60,14 @@ public class Setor implements Serializable {
 		this.name = name;
 	}
 	
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
 	public List<Atividade> getAtividades() {
 		return atividades;
 	}

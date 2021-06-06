@@ -1,7 +1,5 @@
 package com.silvaguilherme.estudoshorasepc;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -47,12 +45,12 @@ public class EstudoshorasepcApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Area a1 = new Area(null, "P041");
+		Area a1 = new Area(null, "P041", "Prédio de PPH, SEA e FOR");
 		Area a2 = new Area(null, "P083");
 
-		Setor s1 = new Setor(null, "Engenharia de Processos");
-		Setor s2 = new Setor(null, "Automação");
-		Setor s3 = new Setor(null, "Planejamento");
+		Setor s1 = new Setor(null, "Engenharia de Processos", "EPC");
+		Setor s2 = new Setor(null, "Automação", "AUT");
+		Setor s3 = new Setor(null, "Planejamento", "PLN");
 		
 		Estado e1 = new Estado(null, "Aguardando");
 		Estado e2 = new Estado(null, "Execução");
@@ -76,14 +74,6 @@ public class EstudoshorasepcApplication implements CommandLineRunner {
 		Atividade atv5 = new Atividade (null, "Manual", p3, s2, e2, u2);
 		Atividade atv6 = new Atividade (null, "Estudo", p2, s1, e3, u3);
 		Atividade atv7 = new Atividade (null, "Memorial", p1, s2, e4, u4);
-		
-		a1.getProjetos().addAll(Arrays.asList(p1, p3));
-		a2.getProjetos().addAll(Arrays.asList(p2, p4));
-		
-		p1.getAtividades().addAll(Arrays.asList(atv1, atv5));
-		p2.getAtividades().addAll(Arrays.asList(atv2, atv6));
-		p3.getAtividades().addAll(Arrays.asList(atv3, atv7));
-		p4.getAtividades().addAll(Arrays.asList(atv4));
 		
 		areaRepository.save(a1);
 		areaRepository.save(a2);

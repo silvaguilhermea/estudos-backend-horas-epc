@@ -18,22 +18,7 @@ import com.silvaguilherme.estudoshorasepc.services.UsuarioService;
 @RestController
 @RequestMapping(value = "/usuarios")
 public class UsuarioResource {
-/*
-	@Autowired
-	private UsuarioRepository UsuarioRepository;
-	
-	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll() {
-		List<Usuario> list = UsuarioRepository.findAll();
-		return ResponseEntity.ok().body(list);
-	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Usuario> findById(@PathVariable Long id) {
-		Usuario e = UsuarioRepository.findById(id).get();
-		return ResponseEntity.ok().body(e);
-	} 
-	*/
 	@Autowired /* instância objetos automaticamente */
 	public UsuarioService service;
 

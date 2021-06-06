@@ -18,22 +18,7 @@ import com.silvaguilherme.estudoshorasepc.services.SetorService;
 @RestController
 @RequestMapping(value = "/setores")
 public class SetorResource {
-/*
-	@Autowired
-	private SetorRepository setorRepository;
-	
-	@GetMapping
-	public ResponseEntity<List<Setor>> findAll() {
-		List<Setor> list = setorRepository.findAll();
-		return ResponseEntity.ok().body(list);
-	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Setor> findById(@PathVariable Long id) {
-		Setor set= setorRepository.findById(id).get();
-		return ResponseEntity.ok().body(set);
-	} 
-	*/
 	@Autowired /* instância objetos automaticamente */
 	public SetorService service;
 

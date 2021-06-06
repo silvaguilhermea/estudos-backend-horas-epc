@@ -18,24 +18,7 @@ import com.silvaguilherme.estudoshorasepc.services.ProjetoService;
 @RestController
 @RequestMapping(value = "/projetos")
 public class ProjetoResource {
-/*	
-	private List<Projeto> list;
 
-	@Autowired
-	private ProjetoRepository projetoRepository;
-	
-	@GetMapping
-	public ResponseEntity<List<Projeto>> findAll() {
-		List<Projeto> list = projetoRepository.findAll();
-		return ResponseEntity.ok().body(list);
-	}
-
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Projeto> findById(@PathVariable Long id) {
-		Projeto obj = projetoRepository.findById(id).get();
-		return ResponseEntity.ok().body(obj);
-	}
-*/
 	@Autowired /* instância objetos automaticamente */
 	public ProjetoService service;
 

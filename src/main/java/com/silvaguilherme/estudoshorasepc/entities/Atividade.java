@@ -3,6 +3,7 @@ package com.silvaguilherme.estudoshorasepc.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Atividade implements Serializable {
 	private Integer id;
 	
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
+	@Column(unique = true)
 	private String name;
 	
 	@ManyToOne
