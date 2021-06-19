@@ -6,6 +6,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.silvaguilherme.estudoshorasepc.dto.AtividadeDTO;
@@ -55,6 +58,11 @@ public class AtividadeService {
 	public List<AtividadeDTO> converteDTO(List<Atividade> atividades) {
 		List<AtividadeDTO> listDto = atividades.stream().map(obj -> new AtividadeDTO(obj)).collect(Collectors.toList());
 		return listDto;
+	}
+	
+	public Page<Atividade> buscarPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction),orderBy);
+		return repo.findAll(pageRequest);
 	}
 
 }
