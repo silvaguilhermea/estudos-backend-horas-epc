@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.silvaguilherme.estudoshorasepc.dto.ProjetoDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Projeto;
 import com.silvaguilherme.estudoshorasepc.services.ProjetoService;
 
@@ -53,10 +54,17 @@ public class ProjetoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	/* FAZER COM O DTO */
+	/* FEITO COM O DTO */
+//	@RequestMapping(method = RequestMethod.GET)
+//	public ResponseEntity<List<Projeto>> buscarTudo() {
+//		List<Projeto> obj = service.buscarTudo();
+//		return ResponseEntity.ok().body(obj);
+//	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Projeto>> buscarTudo() {
-		List<Projeto> obj = service.buscarTudo();
+	public ResponseEntity<List<ProjetoDTO>> buscarTudo() {
+		List<ProjetoDTO> obj = service.converteDTO(service.buscarTudo());
 		return ResponseEntity.ok().body(obj);
 	}
+	
 }

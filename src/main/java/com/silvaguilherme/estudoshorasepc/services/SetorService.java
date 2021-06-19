@@ -2,11 +2,13 @@ package com.silvaguilherme.estudoshorasepc.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.silvaguilherme.estudoshorasepc.dto.SetorDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Setor;
 import com.silvaguilherme.estudoshorasepc.repositories.SetorRepository;
 import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;
@@ -48,6 +50,11 @@ public class SetorService {
 	public List<Setor> buscarTudo() {
 		List<Setor> Setors = repo.findAll();
 		return Setors;
+	}
+	
+	public List<SetorDTO> converteDTO(List<Setor> setores) {
+		List<SetorDTO> listDto = setores.stream().map(obj -> new SetorDTO(obj)).collect(Collectors.toList());
+		return listDto;
 	}
 
 }

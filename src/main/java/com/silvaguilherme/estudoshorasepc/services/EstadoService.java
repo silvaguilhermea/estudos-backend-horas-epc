@@ -2,11 +2,13 @@ package com.silvaguilherme.estudoshorasepc.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.silvaguilherme.estudoshorasepc.dto.EstadoDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Estado;
 import com.silvaguilherme.estudoshorasepc.repositories.EstadoRepository;
 import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;
@@ -48,6 +50,11 @@ public class EstadoService {
 	public List<Estado> buscarTudo() {
 		List<Estado> Estados = repo.findAll();
 		return Estados;
+	}
+	
+	public List<EstadoDTO> converteDTO(List<Estado> estados) {
+		List<EstadoDTO> listDto = estados.stream().map(obj -> new EstadoDTO(obj)).collect(Collectors.toList());
+		return listDto;
 	}
 
 }

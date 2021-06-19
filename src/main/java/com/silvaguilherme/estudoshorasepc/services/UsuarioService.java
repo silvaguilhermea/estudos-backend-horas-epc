@@ -2,11 +2,13 @@ package com.silvaguilherme.estudoshorasepc.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.silvaguilherme.estudoshorasepc.dto.UsuarioDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Usuario;
 import com.silvaguilherme.estudoshorasepc.repositories.UsuarioRepository;
 import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;
@@ -48,6 +50,11 @@ public class UsuarioService {
 	public List<Usuario> buscarTudo() {
 		List<Usuario> Usuarios = repo.findAll();
 		return Usuarios;
+	}
+	
+	public List<UsuarioDTO> converteDTO(List<Usuario> usuarios) {
+		List<UsuarioDTO> listDto = usuarios.stream().map(obj -> new UsuarioDTO(obj)).collect(Collectors.toList());
+		return listDto;
 	}
 
 }

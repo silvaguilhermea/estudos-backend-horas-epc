@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.silvaguilherme.estudoshorasepc.dto.SetorDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Setor;
 import com.silvaguilherme.estudoshorasepc.services.SetorService;
 
@@ -53,10 +54,17 @@ public class SetorResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	/* FAZER COM O DTO */
+	/* FEITO COM O DTO */
+//	@RequestMapping(method = RequestMethod.GET)
+//	public ResponseEntity<List<Setor>> buscarTudo() {
+//		List<Setor> obj = service.buscarTudo();
+//		return ResponseEntity.ok().body(obj);
+//	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Setor>> buscarTudo() {
-		List<Setor> obj = service.buscarTudo();
+	public ResponseEntity<List<SetorDTO>> buscarTudo() {
+		List<SetorDTO> obj = service.converteDTO(service.buscarTudo());
 		return ResponseEntity.ok().body(obj);
 	}
+	
 }

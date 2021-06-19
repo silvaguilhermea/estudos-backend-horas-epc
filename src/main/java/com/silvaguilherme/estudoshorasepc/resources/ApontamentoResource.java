@@ -66,4 +66,5 @@ public class ApontamentoResource {
 		List<ApontamentoDTO> obj = service.converteDTO(service.buscarTudo());
 		return ResponseEntity.ok().body(obj);
 	}
+	
 }

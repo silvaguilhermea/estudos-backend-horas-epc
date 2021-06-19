@@ -2,11 +2,13 @@ package com.silvaguilherme.estudoshorasepc.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.silvaguilherme.estudoshorasepc.dto.AreaDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Area;
 import com.silvaguilherme.estudoshorasepc.repositories.AreaRepository;
 import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;
@@ -48,6 +50,11 @@ public class AreaService {
 	public List<Area> buscarTudo() {
 		List<Area> areas = repo.findAll();
 		return areas;
+	}
+	
+	public List<AreaDTO> converteDTO(List<Area> areas) {
+		List<AreaDTO> listDto = areas.stream().map(obj -> new AreaDTO(obj)).collect(Collectors.toList());
+		return listDto;
 	}
 
 }

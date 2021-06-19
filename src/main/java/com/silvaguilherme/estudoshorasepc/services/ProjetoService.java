@@ -2,11 +2,13 @@ package com.silvaguilherme.estudoshorasepc.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.silvaguilherme.estudoshorasepc.dto.ProjetoDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Projeto;
 import com.silvaguilherme.estudoshorasepc.repositories.ProjetoRepository;
 import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;
@@ -48,6 +50,11 @@ public class ProjetoService {
 	public List<Projeto> buscarTudo() {
 		List<Projeto> Projetos = repo.findAll();
 		return Projetos;
+	}
+	
+	public List<ProjetoDTO> converteDTO(List<Projeto> projetos) {
+		List<ProjetoDTO> listDto = projetos.stream().map(obj -> new ProjetoDTO(obj)).collect(Collectors.toList());
+		return listDto;
 	}
 
 }

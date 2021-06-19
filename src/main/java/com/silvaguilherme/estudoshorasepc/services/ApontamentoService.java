@@ -9,7 +9,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.silvaguilherme.estudoshorasepc.dto.ApontamentoDTO;
-import com.silvaguilherme.estudoshorasepc.dto.AtividadeDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Apontamento;
 import com.silvaguilherme.estudoshorasepc.repositories.ApontamentoRepository;
 import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;

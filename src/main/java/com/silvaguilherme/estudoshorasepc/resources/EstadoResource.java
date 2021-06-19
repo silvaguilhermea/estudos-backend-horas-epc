@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.silvaguilherme.estudoshorasepc.dto.EstadoDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Estado;
 import com.silvaguilherme.estudoshorasepc.services.EstadoService;
 
@@ -53,10 +54,17 @@ public class EstadoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	/* FAZER COM O DTO */
+	/* FEITO COM O DTO */
+//	@RequestMapping(method = RequestMethod.GET)
+//	public ResponseEntity<List<Estado>> buscarTudo() {
+//		List<Estado> obj = service.buscarTudo();
+//		return ResponseEntity.ok().body(obj);
+//	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Estado>> buscarTudo() {
-		List<Estado> obj = service.buscarTudo();
+	public ResponseEntity<List<EstadoDTO>> buscarTudo() {
+		List<EstadoDTO> obj = service.converteDTO(service.buscarTudo());
 		return ResponseEntity.ok().body(obj);
 	}
+	
 }

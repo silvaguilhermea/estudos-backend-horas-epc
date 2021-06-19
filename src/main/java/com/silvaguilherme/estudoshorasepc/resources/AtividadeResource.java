@@ -66,4 +66,5 @@ public class AtividadeResource {
 		List<AtividadeDTO> obj = service.converteDTO(service.buscarTudo());
 		return ResponseEntity.ok().body(obj);
 	}
+	
 }

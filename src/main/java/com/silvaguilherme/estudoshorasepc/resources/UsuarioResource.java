@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.silvaguilherme.estudoshorasepc.dto.UsuarioDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Usuario;
 import com.silvaguilherme.estudoshorasepc.services.UsuarioService;
 
@@ -53,10 +54,17 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	/* FAZER COM O DTO */
+	/* FEITO COM O DTO */
+//	@RequestMapping(method = RequestMethod.GET)
+//	public ResponseEntity<List<Usuario>> buscarTudo() {
+//		List<Usuario> obj = service.buscarTudo();
+//		return ResponseEntity.ok().body(obj);
+//	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Usuario>> buscarTudo() {
-		List<Usuario> obj = service.buscarTudo();
+	public ResponseEntity<List<UsuarioDTO>> buscarTudo() {
+		List<UsuarioDTO> obj = service.converteDTO(service.buscarTudo());
 		return ResponseEntity.ok().body(obj);
 	}
+	
 }
