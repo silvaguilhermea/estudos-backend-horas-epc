@@ -2,11 +2,14 @@ package com.silvaguilherme.estudoshorasepc.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.silvaguilherme.estudoshorasepc.dto.ApontamentoDTO;
+import com.silvaguilherme.estudoshorasepc.dto.AtividadeDTO;
 import com.silvaguilherme.estudoshorasepc.entities.Apontamento;
 import com.silvaguilherme.estudoshorasepc.repositories.ApontamentoRepository;
 import com.silvaguilherme.estudoshorasepc.services.exceptions.DataIntegrityException;
@@ -49,5 +52,11 @@ public class ApontamentoService {
 		List<Apontamento> Apontamentos = repo.findAll();
 		return Apontamentos;
 	}
+	
+	public List<ApontamentoDTO> converteDTO(List<Apontamento> apontamentos) {
+		List<ApontamentoDTO> listDto = apontamentos.stream().map(obj -> new ApontamentoDTO(obj)).collect(Collectors.toList());
+		return listDto;
+	}
+
 
 }
