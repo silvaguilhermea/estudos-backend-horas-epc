@@ -51,7 +51,8 @@ public class EstadoService {
 	}
 	
 	public List<Estado> buscarTudo() {
-		List<Estado> Estados = repo.findAll();
+		//List<Estado> Estados = repo.findByName("Finalizado");
+		List<Estado> Estados = repo.findSort();
 		return Estados;
 	}
 	
