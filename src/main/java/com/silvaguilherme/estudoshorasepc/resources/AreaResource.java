@@ -55,13 +55,6 @@ public class AreaResource {
 		Area obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
-
-	/* FEITO COM O DTO */
-//	@RequestMapping(method = RequestMethod.GET)
-//	public ResponseEntity<List<Area>> buscarTudo() {
-//		List<Area> obj = service.buscarTudo();
-//		return ResponseEntity.ok().body(obj);
-//	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<AreaDTO>> buscarTudo() {

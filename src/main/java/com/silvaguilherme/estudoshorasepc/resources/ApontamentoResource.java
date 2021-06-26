@@ -56,16 +56,15 @@ public class ApontamentoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	/* FEITO COM O DTO */
-//	@RequestMapping(method = RequestMethod.GET)
-//	public ResponseEntity<List<Apontamento>> buscarTudo() {
-//		List<Apontamento> obj = service.buscarTudo();
-//		return ResponseEntity.ok().body(obj);
-//	}
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ApontamentoDTO>> buscarTudo() {
 		List<ApontamentoDTO> obj = service.converteDTO(service.buscarTudo());
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@RequestMapping(value = "/responsavel/{attribute}", method = RequestMethod.GET)
+	public ResponseEntity<List<ApontamentoDTO>> buscarPorUsuario(@PathVariable String attribute) {
+		List<ApontamentoDTO> obj = service.converteDTO(service.buscarPorUsuario(attribute));
 		return ResponseEntity.ok().body(obj);
 	}
 	

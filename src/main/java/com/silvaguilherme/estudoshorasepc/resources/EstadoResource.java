@@ -55,13 +55,6 @@ public class EstadoResource {
 		Estado obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
-
-	/* FEITO COM O DTO */
-//	@RequestMapping(method = RequestMethod.GET)
-//	public ResponseEntity<List<Estado>> buscarTudo() {
-//		List<Estado> obj = service.buscarTudo();
-//		return ResponseEntity.ok().body(obj);
-//	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<EstadoDTO>> buscarTudo() {

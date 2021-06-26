@@ -55,6 +55,11 @@ public class AtividadeService {
 		return Atividades;
 	}
 	
+	public List<Atividade> buscarPorProjeto(String attribute) {
+		List<Atividade> Atividades = repo.findSortByAttribute(attribute);
+		return Atividades;
+	}
+	
 	public List<AtividadeDTO> converteDTO(List<Atividade> atividades) {
 		List<AtividadeDTO> listDto = atividades.stream().map(obj -> new AtividadeDTO(obj)).collect(Collectors.toList());
 		return listDto;

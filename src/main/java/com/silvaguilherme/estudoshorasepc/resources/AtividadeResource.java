@@ -55,17 +55,16 @@ public class AtividadeResource {
 		Atividade obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
-
-	/* FEITO COM O DTO */
-//	@RequestMapping(method = RequestMethod.GET)
-//	public ResponseEntity<List<Atividade>> buscarTudo() {
-//		List<Atividade> obj = service.buscarTudo();
-//		return ResponseEntity.ok().body(obj);
-//	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<AtividadeDTO>> buscarTudo() {
 		List<AtividadeDTO> obj = service.converteDTO(service.buscarTudo());
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@RequestMapping(value = "/projeto/{attribute}", method = RequestMethod.GET)
+	public ResponseEntity<List<AtividadeDTO>> buscarPorProjeto(@PathVariable String attribute) {
+		List<AtividadeDTO> obj = service.converteDTO(service.buscarPorProjeto(attribute));
 		return ResponseEntity.ok().body(obj);
 	}
 	

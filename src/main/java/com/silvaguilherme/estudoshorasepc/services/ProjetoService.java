@@ -55,6 +55,11 @@ public class ProjetoService {
 		return Projetos;
 	}
 	
+	public List<Projeto> buscarPorArea(String attribute) {
+		List<Projeto> Projetos = repo.findSortByAttribute(attribute);
+		return Projetos;
+	}
+	
 	public List<ProjetoDTO> converteDTO(List<Projeto> projetos) {
 		List<ProjetoDTO> listDto = projetos.stream().map(obj -> new ProjetoDTO(obj)).collect(Collectors.toList());
 		return listDto;

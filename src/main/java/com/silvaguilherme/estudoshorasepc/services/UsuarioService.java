@@ -51,7 +51,7 @@ public class UsuarioService {
 	}
 	
 	public List<Usuario> buscarTudo() {
-		List<Usuario> Usuarios = repo.findAll();
+		List<Usuario> Usuarios = repo.findSort();
 		return Usuarios;
 	}
 	

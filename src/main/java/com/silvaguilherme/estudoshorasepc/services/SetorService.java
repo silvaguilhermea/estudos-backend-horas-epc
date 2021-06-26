@@ -51,7 +51,7 @@ public class SetorService {
 	}
 	
 	public List<Setor> buscarTudo() {
-		List<Setor> Setors = repo.findAll();
+		List<Setor> Setors = repo.findSort();
 		return Setors;
 	}
 	

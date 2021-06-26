@@ -11,10 +11,7 @@ import com.silvaguilherme.estudoshorasepc.entities.Estado;
 @Repository
 public interface EstadoRepository extends JpaRepository<Estado, Integer> {
 	
-	@Query("SELECT e FROM Estado e WHERE e.name = ?1")
-	List<Estado> findByName(String name);
-	
-	@Query("SELECT e FROM Estado e ORDER BY e.name DESC")
+	@Query("SELECT obj FROM Estado obj ORDER BY obj.name ASC")
 	List<Estado> findSort();
 
 }

@@ -51,7 +51,7 @@ public class AreaService {
 	}
 	
 	public List<Area> buscarTudo() {
-		List<Area> areas = repo.findAll();
+		List<Area> areas = repo.findSort();
 		return areas;
 	}
 	

@@ -55,13 +55,6 @@ public class UsuarioResource {
 		Usuario obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
-
-	/* FEITO COM O DTO */
-//	@RequestMapping(method = RequestMethod.GET)
-//	public ResponseEntity<List<Usuario>> buscarTudo() {
-//		List<Usuario> obj = service.buscarTudo();
-//		return ResponseEntity.ok().body(obj);
-//	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<UsuarioDTO>> buscarTudo() {

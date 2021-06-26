@@ -55,6 +55,11 @@ public class ApontamentoService {
 		return Apontamentos;
 	}
 	
+	public List<Apontamento> buscarPorUsuario(String attribute) {
+		List<Apontamento> Apontamentos = repo.findSortByAttribute(attribute);
+		return Apontamentos;
+	}
+	
 	public List<ApontamentoDTO> converteDTO(List<Apontamento> apontamentos) {
 		List<ApontamentoDTO> listDto = apontamentos.stream().map(obj -> new ApontamentoDTO(obj)).collect(Collectors.toList());
 		return listDto;
